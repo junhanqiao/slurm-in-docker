@@ -2,13 +2,17 @@
 set -e
 
 # build slurm rpms
-wget https://download.schedmd.com/slurm/slurm-${SLURM_VERSION}.tar.bz2
+#wget https://download.schedmd.com/slurm/slurm-${SLURM_VERSION}.tar.bz2
+cp /download/slurm-${SLURM_VERSION}.tar.bz2 ./
 rpmbuild -ta "slurm-${SLURM_VERSION}.tar.bz2"
 cp /root/rpmbuild/RPMS/x86_64/slurm-* /packages
 
 # build openmpi rpm
-wget https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.1.tar.gz
-curl https://raw.githubusercontent.com/open-mpi/ompi/v3.0.x/contrib/dist/linux/buildrpm.sh -o buildrpm.sh
+#wget https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.1.tar.gz
+#curl https://raw.githubusercontent.com/open-mpi/ompi/v3.0.x/contrib/dist/linux/buildrpm.sh -o buildrpm.sh
+cp /download/openmpi-3.0.1.tar.gz ./
+cp /download/buildrpm.sh ./
+
 chmod +x buildrpm.sh
 yum -y localinstall /root/rpmbuild/RPMS/x86_64/slurm-*
 mkdir -p /usr/src/redhat

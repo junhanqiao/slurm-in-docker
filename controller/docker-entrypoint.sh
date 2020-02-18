@@ -135,9 +135,9 @@ FastSchedule=1
 #PriorityMaxAge=1-0
 #
 # LOGGING
-SlurmctldDebug=3
+SlurmctldDebug=debug
 SlurmctldLogFile=/var/log/slurmctld.log
-SlurmdDebug=3
+SlurmdDebug=debug
 SlurmdLogFile=/var/log/slurmd.log
 JobCompType=jobcomp/none
 #JobCompLoc=

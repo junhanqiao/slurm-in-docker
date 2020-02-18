@@ -28,7 +28,8 @@ RUN yum -y install \
   munge-devel \
   openssh-server \
   openssh-clients
-
+RUN echo "UseDNS no" >>/etc/ssh/sshd_config 
+COPY download/Lmod-7.7.tar.bz2 /
 # install slurm 19.05.1
 COPY rpms /packages
 # /usr/bin/mpiexec from slurm-torque conflicts with openmpi install

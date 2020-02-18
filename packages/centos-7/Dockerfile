@@ -38,6 +38,7 @@ RUN yum -y install \
   && yum -y group install "Development Tools"
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
+COPY  download /download
 VOLUME ["/packages"]
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["ls", "-alh", "/packages"]
